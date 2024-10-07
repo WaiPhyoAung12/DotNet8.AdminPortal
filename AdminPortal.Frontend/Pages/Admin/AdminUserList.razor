@@ -1,0 +1,10 @@
+﻿@page "/admin/list"
+@using Shared
+@inject IDialogService DialogService
+@using MudBlazor
+@* Required *@
+
+
+<DataGridComponent Model="@responseModel" LoadData="LoadData" CreateURL="@PageUrl.CreateAdmin" EditAction="Edit" DeleteAction="Delete"></DataGridComponent>
+
+

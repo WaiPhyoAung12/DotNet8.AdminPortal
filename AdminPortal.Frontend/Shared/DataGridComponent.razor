@@ -1,0 +1,53 @@
+﻿@typeparam T
+@* Required *@
+<MudThemeProvider />
+<MudPopoverProvider />
+
+@* Needed for dialogs *@
+<MudDialogProvider />
+
+@* Needed for snackbars *@
+<MudSnackbarProvider />
+
+<button class="btn btn-secondary add-new btn-primary waves-effect waves-light mb-2"
+        tabindex="0" aria-controls="DataTables_Table_0" type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasEcommerceCustomerAdd"
+        @onclick="() => _injectionService.Go(CreateURL)">
+    <span>
+        <i class="ri-add-line ri-16px me-0 me-sm-1 align-baseline"></i>
+        <span class="d-none d-sm-inline-block">Add</span>
+    </span>
+</button>
+
+<RadzenDataGrid Data="Model!.Datalist" LoadData="LoadDataAsync">
+    <Columns>
+        @foreach (var column in Model!.Columns)
+        {
+            <RadzenDataGridColumn Property="@column.PropertyName" Title="@column.Title">
+
+            </RadzenDataGridColumn>
+        }
+        <RadzenDataGridColumn TItem="T" Context="data" HeaderCssClass="rz-text-align-center" Frozen="true" TextAlign="TextAlign.Center" Title="Actions" Width="156px">
+            <Template Context="data">
+                <div class="d-flex justify-content-center">
+
+
+                    <RadzenButton class="mr-3 btn btn-icon btn-sm btn-info-light btn-wave waves-effect waves-light"
+                                  Icon="edit" Variant="Radzen.Variant.Flat" ButtonStyle="ButtonStyle.Warning"
+                                  Size="ButtonSize.Small" Click="()=>EditData(data)">
+                    </RadzenButton>
+
+
+                    <RadzenButton class="mr-3 btn btn-icon btn-sm btn-danger-light btn-wave waves-effect waves-light"
+                                  Icon="delete" Variant="Radzen.Variant.Flat" ButtonStyle="ButtonStyle.Danger"
+                                  Size="ButtonSize.Small" Click="()=>DeleteData(data)">
+                    </RadzenButton>
+                </div>
+            </Template>
+        </RadzenDataGridColumn>
+
+    </Columns>
+</RadzenDataGrid>
+
+

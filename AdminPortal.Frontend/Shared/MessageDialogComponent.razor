@@ -1,0 +1,36 @@
+﻿@using MudBlazor
+
+@typeparam T
+
+<MudDialog>
+    <DialogContent>
+        <MudText>@ContentText</MudText>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="@Color" Variant="MudBlazor.Variant.Filled" OnClick="Submit">@ButtonText</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+
+    [Parameter] public string ContentText { get; set; }
+
+    [Parameter] public string ButtonText { get; set; }
+
+    [Parameter] public Color Color { get; set; }
+
+    [Parameter] public T Data { get; set; }
+
+    void Submit()
+    {
+        MudDialog.Close(DialogResult.Ok(Data));
+    }
+
+    void Cancel() => MudDialog.Cancel();
+
+}
+
+ 

@@ -1,0 +1,34 @@
+﻿@page "/admin/create"
+@using MudBlazor
+@* Required *@
+<MudThemeProvider />
+<MudPopoverProvider />
+
+@* Needed for dialogs *@
+<MudDialogProvider />
+
+@* Needed for snackbars *@
+<MudSnackbarProvider />
+<EditForm Model="Model" OnValidSubmit="OnValidSubmit">
+<DataAnnotationsValidator/>
+<MudGrid>
+    <MudItem xs="12" sm="7">
+        <MudCard>
+            <MudCardContent>
+                <MudTextField Label="Name" HelperText="Max. 8 characters"
+                              @bind-Value="Model.Name" For="@(() => Model.Name)"/>
+                <MudTextField Label="Email" Class="mt-3"
+                              @bind-Value="Model.Email" For="@(() => Model.Email)"/>
+                <MudTextField Label="Address" Class="mt-3"
+                              @bind-Value="Model.Address" For="@(() =>Model.Address)"/>
+                <MudTextField Label="Phone Number" Class="mt-3"
+                              @bind-Value="Model.PhoneNumber" For="@(() => Model.PhoneNumber)"/>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton ButtonType="MudBlazor.ButtonType.Submit" Variant="MudBlazor.Variant.Filled" Color="Color.Primary" Class="ml-auto">Register</MudButton>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+    
+</MudGrid>
+</EditForm>

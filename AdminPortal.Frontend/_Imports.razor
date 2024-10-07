@@ -1,0 +1,22 @@
+﻿@using System.Net.Http
+@using AdminPortal.Shared.Services.ApiService
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+@using Microsoft.JSInterop
+@using AdminPortal.Frontend
+@using AdminPortal.Frontend.Shared
+@using AdminPortal.Shared
+@using MudBlazor
+@using Radzen
+@using Radzen.Blazor
+@using AdminPortal.Frontend.Services    
+@using AdminPortal.Frontend.Constants
+
+
+@inject HttpClientService _httpClientService
+@inject IInjectionService _injectionService
+@inject IDialogService _dialogService

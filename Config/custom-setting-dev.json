@@ -1,0 +1,4 @@
+{
+  "DbConnection": "Server=localhost;Database=admin_db;User=root;Password=wai123!@#",
+  "BackendUrl": "https://localhost:7077"
+}
